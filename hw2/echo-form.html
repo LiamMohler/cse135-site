@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echo Form - HW2</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+    <h1>Echo Form</h1>
+    <p><a href="/">← Back to Home</a></p>
+
+    <form id="echoForm" method="GET" action="/hw2/perlcode/echo-perl.pl">
+      
+      <label for="language">Language:</label>
+      <select id="language" name="language">
+        <option value="perl">Perl</option>
+        <option value="php">PHP</option>
+        <option value="python">Python</option>
+        <option value="rust">Rust</option>
+      </select>
+
+      <label for="method">Method:</label>
+      <select id="method" name="method">
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+        <option value="PUT">PUT</option>
+        <option value="DELETE">DELETE</option>
+      </select>
+
+      <label for="encoding">Encoding:</label>
+      <select id="encoding" name="encoding">
+        <option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+        <option value="application/json">application/json</option>
+      </select>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script src="/js/echo-form.js"></script>
+</body>
+</html>
