@@ -1,6 +1,6 @@
 <?php
-print "Cache-Control: no-cache\n";
-print "Content-Type: text/html\n\n";
+header("Cache-Control: no-cache");
+header("Content-Type: text/html");
 
 $method = $_SERVER['REQUEST_METHOD'];
 $date = date('Y-m-d H:i:s');
@@ -46,7 +46,7 @@ if (!empty($data)) {
     print "<table border='1'>";
     print "<tr><th>Key</th><th>Value</th></tr>";
     foreach ($data as $key => $value) {
-        if ($key != 'language' && $key != 'method') {
+        if ($key != 'language' && $key != 'method' && $key != 'encoding') {
             print "<tr><td>$key</td><td>$value</td></tr>";
         }
     }

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-print "Cache-Control: no-cache\n";
-print "Content-Type: text/html\n\n";
+header("Cache-Control: no-cache");
+header("Content-Type: text/html");
 
 print "<!DOCTYPE html>";
 print "<html>";

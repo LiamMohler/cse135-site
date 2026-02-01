@@ -1,6 +1,6 @@
 <?php
-print "Cache-Control: no-cache\n";
-print "Content-Type: application/json\n\n";
+header("Cache-Control: no-cache");
+header("Content-Type: application/json");
 
 $date = date('Y-m-d H:i:s');
 $ip = $_SERVER['REMOTE_ADDR'];
