@@ -7,7 +7,7 @@
   const encodingSelect = document.getElementById('encoding');
 
   const endpoints = {
-    perl: '/hw2/perlcode/echo-perl.pl',
+    perl: '/hw2/perlcode/perl-general-echo.pl',
     php: '/hw2/php/echo-php.php',
     python: '/hw2/python/echo-python.py',
     rust: '/hw2/rust/echo-rust.cgi'
