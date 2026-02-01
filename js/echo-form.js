@@ -6,18 +6,39 @@
   const methodSelect = document.getElementById('method');
   const encodingSelect = document.getElementById('encoding');
 
+  // Endpoint mapping based on language and method
   const endpoints = {
-    perl: '/hw2/perlcode/perl-general-echo.pl',
-    php: '/hw2/php/echo-php.php',
-    python: '/hw2/python/echo-python.py',
-    rust: '/hw2/rust/echo-rust.cgi'
+    perl: {
+      GET: '/hw2/perlcode/perl-get-echo.pl',
+      POST: '/hw2/perlcode/perl-post-echo.pl',
+      PUT: '/hw2/perlcode/perl-general-echo.pl',
+      DELETE: '/hw2/perlcode/perl-general-echo.pl'
+    },
+    php: {
+      GET: '/hw2/php/php-get-echo.php',
+      POST: '/hw2/php/php-post-echo.php',
+      PUT: '/hw2/php/php-general-echo.php',
+      DELETE: '/hw2/php/php-general-echo.php'
+    },
+    python: {
+      GET: '/hw2/python/python-get-echo.py',
+      POST: '/hw2/python/python-post-echo.py',
+      PUT: '/hw2/python/python-general-echo.py',
+      DELETE: '/hw2/python/python-general-echo.py'
+    },
+    rust: {
+      GET: '/hw2/rust/rust-get-echo.cgi',
+      POST: '/hw2/rust/rust-post-echo.cgi',
+      PUT: '/hw2/rust/rust-general-echo.cgi',
+      DELETE: '/hw2/rust/rust-general-echo.cgi'
+    }
   };
 
   function updateForm() {
     const language = languageSelect.value;
     const method = methodSelect.value;
     
-    form.action = endpoints[language];
+    form.action = endpoints[language][method];
     form.method = method === 'GET' || method === 'POST' ? method : 'POST';
   }
 
