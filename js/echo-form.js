@@ -46,7 +46,9 @@
     const method = methodSelect.value;
     const encoding = encodingSelect.value;
 
-    if (method === 'PUT' || method === 'DELETE' || encoding === 'application/json') {
+    // Use fetch for PUT, DELETE, or JSON encoding
+    // Also use fetch for POST to filter out control fields
+    if (method === 'POST' || method === 'PUT' || method === 'DELETE' || encoding === 'application/json') {
       e.preventDefault();
       
       const formData = new FormData(form);
