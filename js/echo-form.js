@@ -1,12 +1,14 @@
 (function() {
   'use strict';
 
+  document.getElementById('static-forms').style.display = 'none';
+  document.getElementById('dynamic-form').style.display = 'block';
+
   const form = document.getElementById('echoForm');
   const languageSelect = document.getElementById('language');
   const methodSelect = document.getElementById('method');
   const encodingSelect = document.getElementById('encoding');
 
-  // Endpoint mapping based on language and method
   const endpoints = {
     perl: {
       GET: '/hw2/perlcode/perl-get-echo.pl',
@@ -46,8 +48,6 @@
     const method = methodSelect.value;
     const encoding = encodingSelect.value;
 
-    // Use fetch for PUT, DELETE, or JSON encoding
-    // Also use fetch for POST to filter out control fields
     if (method === 'POST' || method === 'PUT' || method === 'DELETE' || encoding === 'application/json') {
       e.preventDefault();
       
@@ -58,20 +58,12 @@
       if (encoding === 'application/json') {
         const data = {};
         for (let [key, value] of formData.entries()) {
-          if (key !== 'language' && key !== 'method' && key !== 'encoding') {
-            data[key] = value;
-          }
+          data[key] = value;
         }
         body = JSON.stringify(data);
         headers['Content-Type'] = 'application/json';
       } else {
-        const params = new URLSearchParams();
-        for (let [key, value] of formData.entries()) {
-          if (key !== 'language' && key !== 'method' && key !== 'encoding') {
-            params.append(key, value);
-          }
-        }
-        body = params.toString();
+        body = new URLSearchParams(formData).toString();
         headers['Content-Type'] = 'application/x-www-form-urlencoded';
       }
 
